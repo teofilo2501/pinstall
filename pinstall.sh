@@ -20,7 +20,13 @@ dnf install google-chrome-stable -y
 #download teamviewer
 wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -O teamviewer.rpm
 
+#add vscode
+rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+#update
+dnf check-update
 dnf update
 
 #install packages
-dnf install mc nmap wine megasync nautilus-megasync anydesk google-chrome-stable teamviewer.rpm kodi remmina remmina-plugins-rdp transmission-gtk 
+dnf install mc nmap wine megasync nautilus-megasync anydesk google-chrome-stable teamviewer.rpm kodi remmina remmina-plugins-rdp transmission-gtk code -y
