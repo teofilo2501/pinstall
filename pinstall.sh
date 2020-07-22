@@ -13,8 +13,8 @@ gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
 EOF
 
 #add google-chrome
-dnf install fedora-workstation-repositories
-dnf config-manager --set-enabled google-chrome
+dnf install fedora-workstation-repositories -y
+dnf config-manager --set-enabled google-chrome -y
 dnf install google-chrome-stable -y
 
 #download teamviewer
@@ -26,11 +26,11 @@ sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.micros
 
 #add sublimetext
 rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo -y
 
 #update
-dnf check-update
-dnf update
+dnf check-update -y
+dnf update -y
 
 #install packages
 dnf install mc nmap wine megasync nautilus-megasync anydesk google-chrome-stable teamviewer.rpm kodi remmina remmina-plugins-rdp transmission-gtk code sublime-text -y
